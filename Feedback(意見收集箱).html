@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>旅遊資訊網站意見滿意程度調查</title>
+  <style>
+    body {
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      background: #f8fafc;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0f172a;
+    }
+    fieldset {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin: 20px 0;
+      padding: 15px;
+    }
+    legend {
+      font-weight: bold;
+      color: #0ea5e9;
+    }
+    label {
+      display: block;
+      margin: 6px 0;
+    }
+    input[type="submit"] {
+      background: #0ea5e9;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background: #0284c7;
+    }
+      .stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
+  .stars input {
+    display: none;
+  }
+  .stars label {
+    font-size: 2rem;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .stars input:checked ~ label,
+  .stars label:hover,
+  .stars label:hover ~ label {
+    color: #fbbf24; /* 金黃色 */
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BCC旅遊資訊網站意見收集箱</h1>
+    <form action="/submit" method="post">
+      
+      <!-- 整體滿意度 -->
+      <fieldset>
+        <legend>1. 您對本網站的整體滿意度？</legend>
+        <label><input type="radio" name="overall" value="非常滿意" required> 非常滿意</label>
+        <label><input type="radio" name="overall" value="滿意"> 滿意</label>
+        <label><input type="radio" name="overall" value="普通"> 普通</label>
+        <label><input type="radio" name="overall" value="不滿意"> 不滿意</label>
+        <label><input type="radio" name="overall" value="非常不滿意"> 非常不滿意</label>
+      </fieldset>
+
+      <!-- 內容品質 -->
+      <fieldset>
+        <legend>2. 您覺得網站提供的旅遊資訊品質如何？</legend>
+        <label><input type="radio" name="content" value="非常優質" required> 非常優質</label>
+        <label><input type="radio" name="content" value="優質"> 優質</label>
+        <label><input type="radio" name="content" value="普通"> 普通</label>
+        <label><input type="radio" name="content" value="需要改善"> 需要改善</label>
+      </fieldset>
+
+      <!-- 使用體驗 -->
+      <fieldset>
+        <legend>3. 您對網站的操作體驗（速度、易用性）評價？</legend>
+        <label><input type="radio" name="usability" value="非常好" required> 非常好</label>
+        <label><input type="radio" name="usability" value="好"> 好</label>
+        <label><input type="radio" name="usability" value="普通"> 普通</label>
+        <label><input type="radio" name="usability" value="差"> 差</label>
+      </fieldset>
+
+      <!-- 功能滿意度 -->
+      <fieldset>
+        <legend>4. 您最常使用的功能（可複選）</legend>
+        <label><input type="checkbox" name="features" value="目的地搜尋"> 目的地搜尋</label>
+        <label><input type="checkbox" name="features" value="行程規劃"> 行程規劃</label>
+        <label><input type="checkbox" name="features" value="景點/餐廳評價"> 景點/餐廳評價</label>
+        <label><input type="checkbox" name="features" value="交通與票券資訊"> 交通與票券資訊</label>
+        <label><input type="checkbox" name="features" value="優惠與活動"> 優惠與活動</label>
+      </fieldset>
+
+      <!-- 推薦意願 -->
+      <fieldset>
+        <legend>5. 您是否會推薦本網站給朋友？</legend>
+        <label><input type="radio" name="recommend" value="一定會" required> 一定會</label>
+        <label><input type="radio" name="recommend" value="可能會"> 可能會</label>
+        <label><input type="radio" name="recommend" value="不確定"> 不確定</label>
+        <label><input type="radio" name="recommend" value="不會"> 不會</label>
+      </fieldset>
+
+      <!-- 星等評分 -->
+       <fieldset>
+        <legend>6. 請為本網站的整體滿意度打分（1–5 顆星）</legend>
+        <div class="stars">
+            <input type="radio" id="star5" name="rating" value="5" required>
+            <label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★</label>
+        </div>
+    </fieldset>
+
+      <!-- 其他意見 -->
+      <fieldset>
+        <legend><label for="Other Opinion">7. 其他意見</label></legend>
+        <textarea id="Other Opinion" rows="4" cols="90" placeholder="Baarrrrrrryyyyy~"></textarea>
+      </fieldset>
+
+      <div style="text-align:center; margin-top:20px;">
+        <input type="submit" value="提交問卷">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
